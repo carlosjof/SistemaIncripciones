@@ -1,0 +1,12 @@
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\bin\Debug\netcoreapp2.0\SistemaPF.deps.json
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\bin\Debug\netcoreapp2.0\SistemaPF.runtimeconfig.json
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\bin\Debug\netcoreapp2.0\SistemaPF.runtimeconfig.dev.json
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\bin\Debug\netcoreapp2.0\SistemaPF.dll
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\bin\Debug\netcoreapp2.0\SistemaPF.pdb
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\obj\Debug\netcoreapp2.0\SistemaPF.csproj.CoreCompileInputs.cache
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\obj\Debug\netcoreapp2.0\SistemaPF.AssemblyInfoInputs.cache
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\obj\Debug\netcoreapp2.0\SistemaPF.AssemblyInfo.cs
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\obj\Debug\netcoreapp2.0\SistemaPF.dll
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\obj\Debug\netcoreapp2.0\SistemaPF.pdb
+C:\Users\CarlosJOF\source\repos\SistemaPF\SistemaPF\obj\Debug\netcoreapp2.0\SistemaPF.csprojAssemblyReference.cache

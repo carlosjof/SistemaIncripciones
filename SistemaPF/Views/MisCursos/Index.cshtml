@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Mis Cursos";
+}
+
+<h2>Mis Cursos</h2>
+
+<a asp-area="" asp-controller="Inscripciones" asp-action="Index" class="btn btn-info" style="margin-bottom:10px;"><span class="glyphicon glyphicon-list-alt"></span> Inscripciones</a>
+
+<div class="form-group">
+    <div class="col-md-6">
+        <input id="filtrar" name="filtrar" placeholder="Buscar" onkeyup="filtrarMisCurso(1)" class="form-control" />
+    </div>
+    <div class="col-md-1">
+        <a href="#" data-toggle="modal" data-target="#modalReportes" onclick="reportesCursos();" id="imprimir" class="btn btn-info"><span class="glyphicon glyphicon-print"></span> Imprimir</a>
+    </div>
+</div>
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Curso
+                </th>
+                <th>
+                    Estudiante
+                </th>
+                <th>
+                    Profesor
+                </th>
+                <th>
+                    Grado
+                </th>
+                <th>    
+                    Pago
+                </th>
+                <th>
+                    Fecha
+                </th>
+                <th>
+                    Opciones
+                </th>
+            </tr>
+        </thead>
+        <tbody id="resultMisCursos"></tbody>
+</table>
+
+<div class="modal fade" id="modalMisCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 id="titleCurso" class="modal-title">Mis Cursos</h4>
+            </div>
+            <div class="modal-body">
+                <form asp-action="">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="Curso" class="col-md-2 control-label">Curso</label>
+                            <div class="col-md-10">
+                                <input for="Curso" id="Curso" name="Curso" placeholder="Curso" class="form-control bs-autocomplete" readonly="readonly"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Estudiante" class="col-md-2 control-label">Estudiante</label>
+                            <div class="col-md-10">
+                                <input for="Estudiante" id="Estudiante" name="Estudiante" placeholder="Estudiante" class="form-control"readonly="readonly" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Profesor" class="col-md-2 control-label">Profesor</label>
+                            <div class="col-md-10">
+                                <input for="Profesor" id="Profesor" name="Profesor" placeholder="Profesor" class="form-control" readonly="readonly"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Grado" class="col-md-2 control-label">Grado</label>
+                            <div class="col-md-10">
+                                <input for="Grado" id="Grado" name="Grado" placeholder="Grado" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Pago" class="col-md-2 control-label">Pago</label>
+                            <div class="col-md-10">
+                                <input for="Pago" id="Pago" name="Pago" placeholder="Pago" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Fecha" class="col-md-2 control-label">Fecha</label>
+                            <div class="col-md-10">
+                                <input type="datetime-local" for="Fecha" id="Fecha" name="Fecha" placeholder="Fecha" class="form-control" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <label id="mensaje" class="col-md-2 control-label"></label>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="actualizarMisCursos()" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalReportes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="Formularios" id="Imprimir">
+                <div class="modal-header">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="modal-title" id="myModalLabel">Reportes Inscripciones</h3>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-body">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2 id="titleReportes" class="panel-title"></h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead id="thead">
+                                
+                            </thead>
+                            <tbody id="resultReportes"></tbody>
+                        </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <div class="panel-body">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" onclick="ImprimirInscripcion('Imprimir')" class="btn btn-primary">Aceptar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

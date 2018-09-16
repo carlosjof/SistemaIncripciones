@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewData["Title"] = "Profesores";
+}
+
+<h2>Profesores</h2>
+
+<p>
+    <a data-toggle="modal" data-target="#modalNP" class="btn btn-info" onclick="empty()"><span class="glyphicon glyphicon-user"></span> Crear Profesor</a>
+</p>
+
+<div class="form-group">
+    <div class="col-md-6">
+        <input id="filtrar" name="filtrar" placeholder="Buscar Profesor" onkeyup="" class="form-control" />
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Especialidad
+            </th>
+            <th>
+                Cedula
+            </th>
+            <th>
+                Nombres
+            </th>
+            <th>
+                Apellidos
+            </th>
+            <th>
+                Fecha Nacimiento
+            </th>
+            <th>
+                Telefono
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Direccion
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody id="resultSearch"></tbody>
+</table>
+
+<div id="paginado">
+
+
+</div>
+
+
+<div class="modal fade" id="modalNP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Profesor</h4>
+            </div>
+            <div class="modal-body">
+                <form asp-action="">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="Especialidad" class="col-md-2 control-label">Especialidad</label>
+                            <div class="col-md-10">
+                                <input for="Especialidad" id="Especialidad" placeholder="Especialidad" name="Especialidad" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Nombre" class="col-md-2 control-label">Nombre</label>
+                            <div class="col-md-10">
+                                <input for="Nombre" id="Nombre" placeholder="Nombre" name="Nombre" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Apellido" class="col-md-2 control-label">Apellido</label>
+                            <div class="col-md-10">
+                                <input for="Apellido" id="Apellido" placeholder="Apellido" name="Apellido" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="FechaNacimiento" class="col-md-2 control-label">Fecha Nacimiento</label>
+                            <div class="col-md-10">
+                                <input type="datetime-local" for="FechaNacimiento" id="FechaNacimiento" placeholder="Fecha Nacimiento" name="FechaNacimiento" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Cedula" class="col-md-2 control-label">Cedula</label>
+                            <div class="col-md-10">
+                                <input for="Cedula" id="Cedula" placeholder="Cedula" name="Cedula" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email" class="col-md-2 control-label">Email</label>
+                            <div class="col-md-10">
+                                <input for="Email" id="Email" placeholder="Email" name="Email" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Telefono" class="col-md-2 control-label">Telefono</label>
+                            <div class="col-md-10">
+                                <input for="Telefono" id="Telefono" placeholder="Telefono" name="Telefono" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Direccion" class="col-md-2 control-label">Direccion</label>
+                            <div class="col-md-10">
+                                <input for="Direccion" id="Direccion" placeholder="Direccion" name="Direccion" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Estado" class="col-md-2 control-label">Estado</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" for="Estado" id="Estado" name="Estado" />
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <label id="mensaje" class="col-md-2 form-label"></label>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="guardarProfesor()" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEP" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="titleCategoria" class="modal-title">Eliminar Estudiante</h4>
+            </div>
+            <div class="modal-body">
+                <h3 id="titleEstudiante" class="modal-title"></h3>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                <button type="button" onclick="eliminarProfesores()" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var empty = () => { 
+        document.getElementById("Especialidad").value = "";
+        document.getElementById("Nombre").value = "";
+        document.getElementById("Apellido").value = "";
+        document.getElementById("FechaNacimiento").value = "";
+        document.getElementById("Cedula").value = "";
+        document.getElementById("Email").value = "";
+        document.getElementById("Telefono").value = "";
+        document.getElementById("Direccion").value = "";
+        document.getElementById("Estado").checked = false;
+    }
+</script>
